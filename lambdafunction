@@ -1,7 +1,7 @@
 import boto3
 import json
 from urllib.parse import parse_qs
-import uuid  # Import the uuid module
+import uuid  
 
 dynamodb = boto3.resource('dynamodb')
 table_name = 'ResumeContent'
