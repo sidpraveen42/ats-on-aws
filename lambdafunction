@@ -12,7 +12,7 @@ def lambda_handler(event, context):
     body = event['body']
     form_data = parse_qs(body)
 
-    # Extract form fields
+    
     email = form_data.get('email', [''])[0]
     education = form_data.get('education', [''])[0]
     university = form_data.get('university', [''])[0]
@@ -20,11 +20,11 @@ def lambda_handler(event, context):
     position = form_data.get('position', [''])[0]
     skills = form_data.get('skills', [''])[0]
 
-    # Check for keywords "Solutions Architect" and "Python" in the skills.
+   
     has_solutions_architect_keyword = "Solutions Architect" in skills
     has_python_keyword = "Python" in skills
 
-    # Prepare email response based on keywords and education level.
+   
     if ("Bachelors" in education or "Masters" in education) and has_solutions_architect_keyword and has_python_keyword:
         email_subject = "Interview Invitation"
         email_body = "Congratulations! You have been invited for an interview."
@@ -32,7 +32,7 @@ def lambda_handler(event, context):
         email_subject = "Interview Rejection"
         email_body = "Thank you for your application. We regret to inform you that you have not been selected for an interview."
 
-    # Send email using SES
+   
     ses_client.send_email(
         Source='sidharthpraveen42@gmail.com',  # Update with your verified email address
         Destination={
@@ -50,10 +50,10 @@ def lambda_handler(event, context):
         }
     )
 
-    # Generate a unique resumeid using uuid
+   
     resumeid = str(uuid.uuid4())
 
-    # Save the form data to DynamoDB with resumeid
+    
     table.put_item(
         Item={
             'resumeid': resumeid,
@@ -66,7 +66,7 @@ def lambda_handler(event, context):
         }
     )
 
-    # Return a response to the API Gateway
+   
     response = {
         'statusCode': 200,
         'body': json.dumps({'message': 'Form data processed successfully.'})
