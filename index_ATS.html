@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud Architect Position - HR Page</title>
+</head>
+<body>
+    <h1>Cloud Architect Position</h1>
+    <p>
+        We are looking for a skilled Cloud Architect to join our team. If you have the required qualifications and experience, please submit your information below.
+    </p>
+
+    <form action="https://4bhzfmh2bh.execute-api.ap-south-1.amazonaws.com/prod" method="post" enctype="application/x-www-form-urlencoded">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Education</legend>
+            <label for="education">Education (Diploma or Bachelors):</label>
+            <input type="text" id="education" name="education" required>
+            <br>
+            <label for="university">University:</label>
+            <input type="text" id="university" name="university" required>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Work Experience</legend>
+            <label for="company">Company:</label>
+            <input type="text" id="company" name="company" required>
+            <br>
+            <label for="position">Position:</label>
+            <input type="text" id="position" name="position" required>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Skills</legend>
+            <label for="skills">Skills (comma-separated):</label>
+            <input type="text" id="skills" name="skills" required>
+        </fieldset>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
